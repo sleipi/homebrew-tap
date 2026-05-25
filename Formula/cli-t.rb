@@ -11,7 +11,7 @@ class CliT < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/sleipi/cli-t/releases/download/v1.0.0/cli-t_1.0.0_darwin_amd64.tar.gz"
-      sha256 "b2fc0d53c81864c4faebcff3b57d9cbff33670d19fc86cdb18c117f50b7320e0"
+      sha256 "631e543837a17e45e93f81e5e4225940bb322ca37342cf43535c542affd68048"
 
       define_method(:install) do
         bin.install "clitest"
@@ -19,7 +19,7 @@ class CliT < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/sleipi/cli-t/releases/download/v1.0.0/cli-t_1.0.0_darwin_arm64.tar.gz"
-      sha256 "a65409287bc2f42435c4e6a99ee0d442e0f840c6ab99dec33afe2d0bfd697728"
+      sha256 "8eaa8d270d58f4827d915ed85cc5fb5d2ce62e31714fa3ce258a47d2ecee45de"
 
       define_method(:install) do
         bin.install "clitest"
@@ -30,18 +30,24 @@ class CliT < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/sleipi/cli-t/releases/download/v1.0.0/cli-t_1.0.0_linux_amd64.tar.gz"
-      sha256 "b6f1f42c48ec0ce126186eae10e3be6937a715a4565c1e6ec4054fab16099b44"
+      sha256 "a877cabf316ff1bc242175c8cc10bd4f392431bf50e06fbdbd52626bb4cd8685"
       define_method(:install) do
         bin.install "clitest"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/sleipi/cli-t/releases/download/v1.0.0/cli-t_1.0.0_linux_arm64.tar.gz"
-      sha256 "45dd047fdd3d32acc0fd18e33619a04c998e88a63371a542612f1e70b3931bbf"
+      sha256 "2e7ac0bc561148905c70a015683f12f4ca5d08c040c6a7b9538261d3a6ae8d89"
       define_method(:install) do
         bin.install "clitest"
       end
     end
+  end
+
+  def caveats
+    <<~EOS
+      CLITest installed! Run 'clitest' to start.
+    EOS
   end
 
   test do
